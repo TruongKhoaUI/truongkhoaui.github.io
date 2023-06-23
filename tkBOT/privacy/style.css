@@ -16,7 +16,7 @@ h2 {text-align: left; -webkit-user-select: none; -moz-user-select: none; -ms-use
 p {-webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
 
 /* Scrollbar 20px */
-::-webkit-scrollbar {width: 20px;}
+::-webkit-scrollbar {width: 12px;}
 ::-webkit-scrollbar-track {background: #525252;}
-::-webkit-scrollbar-thumb {background: #888; border-radius: 20px;}
+::-webkit-scrollbar-thumb {background: #888; border-radius: 12px;}
 ::-webkit-scrollbar-thumb:hover {background: #838383;}
