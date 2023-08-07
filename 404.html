@@ -5,42 +5,121 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TruongKhoa</title>
   <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="icon" href="main-logo.png">
 </head>
 <style>
   /** Main page **/
-  body {margin: 0%; padding: 0%; background: linear-gradient(-45deg,#490074, #005397); background-size: 300% 300%; animation: color 12s ease-in-out infinite;}
-  @keyframes color{0%{background-position-x: 0 50%;} 50%{background-position: 100% 50%;} 100%{background-position: 0 50%;}}
-  @keyframes moveIcon {0% { transform: translateX(50px); } 100% { transform: translateX(50px); }}
+  body {margin: 0%; padding: 0%; background: #000742;}
   div {font-family: Inter, sans-serif; color: rgb(255, 255, 255); font-size: 50px;}
 
-  /** Blur window effect **/
-  .blur {backdrop-filter: blur(5px); background-color: rgba(0,0,0,.5); padding: 40px; border-radius: 30px; width: 80%; height: 100%; text-align: center; margin: auto; box-shadow: 0px 0px 20px rgba(0,0,0,.5);}
-  .myprojectblur {backdrop-filter: blur(5px); background-color: rgba(0,0,0,.5); padding: 40px; border-radius: 30px; width: 70%; height: 100%; text-align: center; margin: auto; box-shadow: 0px 0px 20px rgba(0,0,0,.5);}
-  .creditblur {backdrop-filter: blur(5px); background-color: rgba(0,0,0,.5); padding: 40px; border-radius: 30px; width: 70%; height: 100%; text-align: center; margin: auto; box-shadow: 0px 0px 20px rgba(0,0,0,.5);}
+  /** Text **/
+  h1 {text-align:center; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none; font-family:Inter,sans-serif; font-size:30px; color:#fff;}
+  h2 {text-align:center; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none; font-family:Inter,sans-serif; font-size:30px; color:#fff;}
 
   /** Header content **/
-  .container{font-family: Inter, sans-serif; color: #fff; text-align: center; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
-  header {image-resolution: 100x100; image-rendering: pixelated; text-align: left;}
+  .container {font-family: Inter, sans-serif; color:#fff; text-align:center; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none; display:flex; flex-direction:column; justify-content:center; align-items:center; height:100vh;}
+  header {image-resolution:100x100; image-rendering:pixelated; text-align:left;}
+  .logo {margin-right:center;}
+  .text{margin-left:center; font-size:20px;}
 
-  /** Text, paragraph for the page **/
-  h1 {text-align: center; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; font-family: Inter, sans-serif; color: rgb(255, 255, 255); font-size: 50px;}
-  h2 {text-align: center; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; font-family: Inter, sans-serif; font-size: 20px; color: rgb(255, 255, 255);}
+  .button {display:inline-block; border-radius:50%; text-decoration:none; background-color:#002b64; margin-left:5px; margin-right: 5px;  width:70px; height:70px; transition: background-color 0.10s ease;}
+  .button:hover {background-color:#002b64; box-shadow: 0 0 20px 0 rgba(0,0,0,0.5);}
+  @keyframes button-color {0% {background-color:#002b64;} 100% {background-color:#002b64;}}
 
-  /* Scrollbar 12px */
-  ::-webkit-scrollbar {width: 12px;}
-  ::-webkit-scrollbar-track {background: #525252;}
-  ::-webkit-scrollbar-thumb {background: #888; border-radius: 12px;}
-  ::-webkit-scrollbar-thumb:hover {background: #838383;}
+  i {color: white; font-size: 30px; margin-top: 20px;}
+  .switch {position: relative; display: inline-block; width: 60px; height: 34px;}
+  .switch input {opacity: 0; width: 0; height: 0;}
+  .slider {position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; -webkit-transition: .4s; transition: .4s;}
+  .slider:before {position: absolute; content: ""; height: 26px; width: 26px; left: 4px; bottom: 4px; background-color: white; -webkit-transition: .4s; transition: .4s;}
+  .switch-container {position: absolute; top: 10px; right: 10px;}
+  input:checked + .slider {background-color:#004175;}
+  body:not(input:checked) {
+    background-color: #000742; 
+  }
+  input:focus + .slider {box-shadow:0px,0px,1px,#004175}
+  input:checked + .slider:before {-webkit-transform:translateX(26px); -ms-transform:translateX(26px); transform:translateX(26px);}
+  .slider.round {border-radius:34px}
+  .slider.round:before {border-radius:50%}
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {width:10px;}
+  ::-webkit-scrollbar-thumb {background:#888;border-radius:10px;}
+  ::-webkit-scrollbar-thumb:hover {background:#4d4d4d;}
 </style>
+
 <body>
-    <div class="container">
-      <img src="main-logo.png">
-    </div>
-    <div class="blur">
-        <h1>404</h1>
-        <h2>Oops... Looks like we go to the wrong way, should we need to back to the main page?</h2>
-    </div>
+<div class="switch-container">
+  <label class="switch">
+    <input type="checkbox" id="switch">
+    <span class="slider round"></span>
+  </label>
+</div>
+<div class="container">
+  <h1>404 Not Found</h1>
+  <p style="font-family: Inter; font-size:20px;text-align:left;">We're feeling lost now. Go back to home?</p>
+  <h2>
+    <a class="button" href="index.html" draggable="false">
+      <i class="fas fa-house"></i>        
+    </a>      
+  </h2>   
+</div>
+<script>
+  if (localStorage.getItem('toggleState') === 'on') {
+    document.getElementById('switch').checked = true;
+    document.body.style.backgroundColor = '#ebf6ff';
+    document.body.style.color = 'black';
+    document.querySelector('h1').style.color = 'black';
+    document.querySelector('h2').style.color = 'black';
+    let icons = document.querySelectorAll('i');
+    for (let i = 0; i < icons.length; i++) {
+      icons[i].style.color = 'black';
+    }
+    let buttons = document.querySelectorAll('.button');
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[i].style.backgroundColor = '#70d7ff';
+      buttons[i].style.outlineColor = '#70d7ff';
+    }
+    document.querySelector('.container').style.color = 'black';      
+  }
+
+  document.getElementById('switch').addEventListener('change', function() {
+    if (this.checked) {
+      localStorage.setItem('toggleState', 'on');
+      document.body.style.backgroundColor = '#ebf6ff';
+      document.body.style.color = 'black';
+      document.querySelector('h1').style.color = 'black';
+      document.querySelector('h2').style.color = 'black';
+      let icons = document.querySelectorAll('i');
+      for (let i = 0; i < icons.length; i++) {
+        icons[i].style.color = 'black';
+      }
+      let buttons = document.querySelectorAll('.button');
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].style.backgroundColor = '#70d7ff';
+        buttons[i].style.outlineColor = '#70d7ff';
+      }
+      document.querySelector('.container').style.color = 'black';      
+    } else {
+      // Remove the toggle state from localStorage
+      localStorage.removeItem('toggleState');
+      // Apply the styles for the "off" state
+      document.body.style.backgroundColor = '#000742';
+      document.body.style.color = 'white';
+      document.querySelector('h1').style.color = 'white';
+      document.querySelector('h2').style.color = 'white';
+      let icons = document.querySelectorAll('i');
+      for (let i = 0; i < icons.length; i++) {
+        icons[i].style.color = 'white';
+      }
+      let buttons = document.querySelectorAll('.button');
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].style.backgroundColor = '#002b64';
+        buttons[i].style.outlineColor = '#002b64';
+      }
+      document.querySelector('.container').style.color = 'white';        
+    }
+  });
+</script>
 </body>
-</title>
 </html>
