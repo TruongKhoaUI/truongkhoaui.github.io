@@ -9,7 +9,7 @@
 </head>
 <style>
   /** Main page **/
-  body {margin: 0%; padding: 0%; background: #000742;}
+  body {margin: 0%; padding: 0%; background: #000742; background-image: url("bg-dark.png"); background-size: cover; background-repeat: no-repeat; background-repeat: no-repeat;}
   div {font-family: Inter, sans-serif; color: rgb(255, 255, 255); font-size: 50px;}
 
   /** Text **/
@@ -67,6 +67,9 @@
   if (localStorage.getItem('toggleState') === 'on') {
     document.getElementById('switch').checked = true;
     document.body.style.backgroundColor = '#ebf6ff';
+    document.body.style.backgroundImage = "url('bg-dark.png')";
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundRepeat = 'no-repeat';
     document.body.style.color = 'black';
     document.querySelector('h1').style.color = 'black';
     document.querySelector('h2').style.color = 'black';
@@ -86,6 +89,9 @@
     if (this.checked) {
       localStorage.setItem('toggleState', 'on');
       document.body.style.backgroundColor = '#ebf6ff';
+      document.body.style.backgroundImage = "url('bg-light.png')";
+      document.body.style.backgroundSize = 'cover';
+      document.body.style.backgroundRepeat = 'no-repeat';
       document.body.style.color = 'black';
       document.querySelector('h1').style.color = 'black';
       document.querySelector('h2').style.color = 'black';
@@ -104,6 +110,9 @@
       localStorage.removeItem('toggleState');
       // Apply the styles for the "off" state
       document.body.style.backgroundColor = '#000742';
+      document.body.style.backgroundImage = "url('bg-dark.png')";
+      document.body.style.backgroundSize = 'cover';
+      document.body.style.backgroundRepeat = 'no-repeat';
       document.body.style.color = 'white';
       document.querySelector('h1').style.color = 'white';
       document.querySelector('h2').style.color = 'white';
