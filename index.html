@@ -13,7 +13,7 @@
 </head>
 <style>
   /** Main page **/
-  body {margin: 0%; padding: 0%; background: #000742; background-image: url("bg-dark.png"); background-size: cover; background-repeat: no-repeat; background-repeat: no-repeat;}
+  body {margin: 0%; padding: 0%; background: #000742; background-image: url("magma.png"); background-size: cover; background-repeat: no-repeat; background-repeat: no-repeat;}
   div {font-family: Inter, sans-serif; color: rgb(255, 255, 255); font-size: 50px;}
 
   /** Text **/
@@ -29,17 +29,15 @@
     background-color: rgba(0, 3, 32, 0.5);
     padding: 50px;
     display: inline-block;
-    border-radius: 50px;
+    border-radius: 20px;
     box-shadow: 10px 10px 10px 3px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
   }
-  .button {display:inline-block; border-radius:50%; text-decoration:none; background-color:#002b64; margin-left:5px; margin-right: 5px; width:70px; height:70px; transition: background-color 0.10s ease;}
+  .button {display:inline-block; border-radius:50%; text-decoration:none; background-color:#061427; margin-left:5px; margin-right: 5px; width:70px; height:70px; transition: background-color 0.10s ease;}
   .button:hover {background-color:#002b64; box-shadow: 0 0 20px 0 rgba(0,0,0,0.5);}
   @keyframes button-color {0% {background-color:#002b64;} 100% {background-color:#002b64;}}
 
   i {color: white; font-size: 30px; margin-top: 20px;}
-  .switch {position: relative; display: inline-block; width: 60px; height: 34px;}
-  .switch input {opacity: 0; width: 0; height: 0;}
   .slider {position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; -webkit-transition: .4s; transition: .4s;}
   .slider:before {position: absolute; content: ""; height: 26px; width: 26px; left: 4px; bottom: 4px; background-color: white; -webkit-transition: .4s; transition: .4s;}
   .switch-container {position: absolute; top: 10px; right: 10px;}
@@ -47,23 +45,12 @@
   body:not(input:checked) {
     background-color: #000742; 
   }
-  input:focus + .slider {box-shadow:0px,0px,1px,#004175}
-  input:checked + .slider:before {-webkit-transform:translateX(26px); -ms-transform:translateX(26px); transform:translateX(26px);}
-  .slider.round {border-radius:34px}
-  .slider.round:before {border-radius:50%}
-
   /* Scrollbar */
   ::-webkit-scrollbar {width:10px;}
   ::-webkit-scrollbar-thumb {background:#888;border-radius:10px;}
   ::-webkit-scrollbar-thumb:hover {background:#4d4d4d;}
 </style>
 <body>
-  <div class="switch-container">
-    <label class="switch">
-      <input type="checkbox" id="switch">
-      <span class="slider round"></span>
-    </label>
-  </div>  
 <div class="container">
   <div class="main-box">
     <img class="logo" src="main-logo.png" width="85" height="85" draggable="false">
@@ -85,90 +72,5 @@
       </h2>
   </div>   
 </div>
-<script>
-  if (localStorage.getItem('toggleState') === 'on') {
-    document.getElementById('switch').checked = true;
-    document.body.style.backgroundColor = '#A1E0FF';
-    document.body.style.backgroundImage = "url('bg-dark.png')";
-    document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundRepeat = 'no-repeat';
-    document.body.style.color = 'black';
-    document.querySelector('p').style.color = 'black';
-    document.querySelector('h1').style.color = 'black';
-    document.querySelector('h2').style.color = 'black';
-    let socialButtons = document.querySelector('.main-box');
-    socialButtons.style.backgroundColor = 'rgba(179, 246, 255, 0.5)';
-    socialButtons.style.padding = '50px';
-    socialButtons.style.borderRadius = '50px';
-    socialButtons.style.boxShadow = '10px 10px 10px 3px rgba(0, 0, 0, 0.5)';
-    let icons = document.querySelectorAll('i');
-    for (let i = 0; i < icons.length; i++) {
-      icons[i].style.color = 'black';
-    }
-    let buttons = document.querySelectorAll('.button');
-    for (let i = 0; i < buttons.length; i++) {
-      buttons[i].style.backgroundColor = '#70d7ff';
-      buttons[i].style.outlineColor = '#70d7ff';
-    }
-    document.querySelector('.container').style.color = 'black';      
-  }
-
-  document.getElementById('switch').addEventListener('change', function() {
-    if (this.checked) {
-      localStorage.setItem('toggleState', 'on');
-      document.body.style.backgroundColor = '#A1E0FF';
-      document.body.style.backgroundImage = "url('bg-light.png')";
-      document.body.style.backgroundSize = 'cover';
-      document.body.style.backgroundRepeat = 'no-repeat';
-      document.body.style.color = 'black';
-      document.querySelector('p').style.color = 'black';
-      document.querySelector('h1').style.color = 'black';
-      document.querySelector('h2').style.color = 'black';
-      let icons = document.querySelectorAll('i');
-      for (let i = 0; i < icons.length; i++) {
-        icons[i].style.color = 'black';
-      }
-      let buttons = document.querySelectorAll('.button');
-      for (let i = 0; i < buttons.length; i++) {
-        buttons[i].style.backgroundColor = '#70d7ff';
-        buttons[i].style.outlineColor = '#70d7ff';
-      }
-      document.querySelector('.container').style.color = 'black';      
-      
-      let socialButtons = document.querySelector('.main-box');
-      socialButtons.style.backgroundColor = 'rgba(179, 246, 255, 0.5)';
-      socialButtons.style.padding = '50px';
-      socialButtons.style.borderRadius = '50px';
-      socialButtons.style.boxShadow = '10px 10px 10px 3px rgba(0, 0, 0, 0.5)';
-    } else {
-      // Remove the toggle state from localStorage
-      localStorage.removeItem('toggleState');
-      // Apply the styles for the "off" state
-      document.body.style.backgroundColor = '#000742';
-      document.body.style.backgroundImage = "url('bg-dark.png')";
-      document.body.style.backgroundSize = 'cover';
-      document.body.style.backgroundRepeat = 'no-repeat';
-      document.body.style.color = 'white';
-      document.querySelector('p').style.color = 'white';
-      document.querySelector('h1').style.color = 'white';
-      document.querySelector('h2').style.color = 'white';
-      let socialButtons = document.querySelector('.main-box');
-      socialButtons.style.backgroundColor = 'rgba(0, 3, 32, 0.5)';
-      socialButtons.style.padding = '50px';
-      socialButtons.style.borderRadius = '50px';
-      socialButtons.style.boxShadow = '10px 10px 10px 3px rgba(0, 0, 0, 0.5)';
-      let icons = document.querySelectorAll('i');
-      for (let i = 0; i < icons.length; i++) {
-        icons[i].style.color = 'white';
-      }
-      let buttons = document.querySelectorAll('.button');
-      for (let i = 0; i < buttons.length; i++) {
-        buttons[i].style.backgroundColor = '#002b64';
-        buttons[i].style.outlineColor = '#002b64';
-      }
-      document.querySelector('.container').style.color = 'white';        
-    }
-  });
-</script>
 </body>
 </html>
